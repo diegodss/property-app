@@ -1,8 +1,8 @@
-##Installing the Property App
+## Installing the Property App
 
 Using the terminal follow the instructions below:
 
-#1. Clone the git repository
+# 1. Clone the git repository
 
 git clone git@github.com:diegodss/property-app.git
 
