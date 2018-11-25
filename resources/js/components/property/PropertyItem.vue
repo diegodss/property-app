@@ -5,10 +5,10 @@
 				<h5 class="card-title"> {{property.name }}</h5>
 				<h6 class="cart-subtitle"> {{ formatPrice (property.price) }}</h6>
 				<p class="card-text">
-					Bedroom: {{ property.bedroom }}<br />
-					Bathroom: {{ property.bathroom }} <br />
-					garage: {{ property.garage }}<br />
-					Storey: {{ property.storey }}<br />
+					<span title="Bedrooms"><font-awesome-icon icon="bed" /> {{ property.bedroom }}</span> &nbsp;&nbsp;
+					<span title="Bathrooms"><font-awesome-icon icon="bath" /> {{ property.bathroom }}</span> &nbsp;&nbsp;
+					<span title="Garage"><font-awesome-icon icon="car" /> {{ property.garage }}</span> &nbsp;&nbsp;
+					<span title="Storeys"><font-awesome-icon icon="building" /> {{ property.storey }}</span>
 				</p>
 			</div>
 		</div>

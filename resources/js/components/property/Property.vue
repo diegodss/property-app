@@ -1,5 +1,6 @@
 <template>
 	<div>
+		
 		<property-search v-on:success="update"></property-search>
 		<div class="class" v-if="properties.length > 0">
 			<div class="mb-4" v-for="(property, index) in properties">

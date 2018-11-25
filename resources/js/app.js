@@ -7,7 +7,15 @@
 
 require('./bootstrap');
 
+
 window.Vue = require('vue');
+
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faBed } from '@fortawesome/free-solid-svg-icons'
+import { faBath } from '@fortawesome/free-solid-svg-icons'
+import { faBuilding } from '@fortawesome/free-solid-svg-icons'
+import { faCar } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /**
  * The following block of code may be used to automatically register your
@@ -19,6 +27,18 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('property', require('./components/property/Property.vue'));
+
+
+
+library.add(faBed);
+library.add(faBath);
+library.add(faBuilding);
+library.add(faCar);
+
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+
+Vue.config.productionTip = false
+
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
 
