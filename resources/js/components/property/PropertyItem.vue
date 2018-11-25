@@ -23,7 +23,6 @@ export default{
 		}
 	},
 	mounted() {
-		console.log("Property Item Mounted");
 	},
 	methods: {
 		formatPrice(value) {

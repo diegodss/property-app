@@ -10466,10 +10466,24 @@ a.text-dark:focus {
   }
 }
 
+.btn-primary {
+  background-color: #f07622 !important;
+  border: #d6681c !important;
+}
+
 .navbar-laravel {
   background-color: #fff;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.jumbotron {
+  color: white;
+  background-image: url("https://d2mxgl6fbetiu1.cloudfront.net/wp-content/uploads/2018/10/AdobeStock_105082061.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-shadow: 2px 2px 4px #000;
 }
 
 .form_loading {

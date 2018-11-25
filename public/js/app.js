@@ -47521,6 +47521,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -47534,7 +47539,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	props: ['propertiesData'],
 	data: function data() {
 		return {
-			properties: this.propertiesData
+			properties: this.propertiesData,
+			search: false
 		};
 	},
 
@@ -47542,16 +47548,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		update: function update(data) {
 			var _this = this;
 
-			console.log(data);
 			this.properties = []; // Clear the current view
 			data.properties.forEach(function (property, index) {
 				_this.properties.push(property);
 			});
+			this.search = true;
 		}
 	},
-	mounted: function mounted() {
-		console.log("Property Mounted");
-	}
+	mounted: function mounted() {}
 });
 
 /***/ }),
@@ -47711,25 +47715,13 @@ __WEBPACK_IMPORTED_MODULE_0_axios___default.a.defaults.headers.common = {
 				storey: "",
 				garage: ""
 			},
-			maxprice: "",
-			minprice: "",
 			pricerange: [200000, 300000, 400000, 500000, 600000],
 			processing: false,
 			showFilters: true
 
 		};
 	},
-	mounted: function mounted() {
-		console.log("Property Search mounted");
-	},
-
-	computed: {
-		// trigger() {
-		// 	if (this.minprice !== "" && this.maxprice !==) {
-		//   		this.form.price = this.minprice + '-' + this.maxprice;
-		// 	}
-		// }
-	},
+	mounted: function mounted() {},
 
 	methods: {
 		onSubmit: function onSubmit() {
@@ -48059,7 +48051,7 @@ var render = function() {
                     _vm._v(" "),
                     _vm._l(_vm.pricerange, function(n) {
                       return _c("option", { domProps: { value: n } }, [
-                        _vm._v(_vm._s(_vm.formatPrice(n)))
+                        _vm._v("$ " + _vm._s(_vm.formatPrice(n)))
                       ])
                     })
                   ],
@@ -48112,7 +48104,7 @@ var render = function() {
                     _vm._v(" "),
                     _vm._l(_vm.pricerange, function(n) {
                       return _c("option", { domProps: { value: n } }, [
-                        _vm._v(_vm._s(_vm.formatPrice(n)))
+                        _vm._v("$ " + _vm._s(_vm.formatPrice(n)))
                       ])
                     })
                   ],
@@ -48269,9 +48261,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			property: this.propertiesData
 		};
 	},
-	mounted: function mounted() {
-		console.log("Property Item Mounted");
-	},
+	mounted: function mounted() {},
 
 	methods: {
 		formatPrice: function formatPrice(value) {
@@ -48363,58 +48353,75 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("property-search", { on: { success: _vm.update } }),
-      _vm._v(" "),
-      _vm.properties.length > 0
-        ? _c(
-            "div",
-            { staticClass: "container" },
-            [
-              _c(
-                "div",
-                {
-                  staticClass: "alert alert-success",
-                  attrs: { role: "alert" }
-                },
-                [
-                  _vm._v("\n\t\t  Your search returned "),
-                  _c("strong", [_vm._v(" " + _vm._s(_vm.properties.length))]),
-                  _vm._v(" results.\n\t\t")
-                ]
-              ),
-              _vm._v(" "),
-              _vm._l(_vm.properties, function(property, index) {
-                return _c(
-                  "div",
-                  { staticClass: "mb-4" },
-                  [
-                    _c("property-item", {
-                      attrs: { "properties-data": property, index: index }
-                    })
-                  ],
-                  1
-                )
-              })
-            ],
-            2
-          )
-        : _c("div", { staticClass: "container" }, [
-            _c(
-              "div",
-              { staticClass: "alert alert-danger", attrs: { role: "alert" } },
-              [
-                _vm._v(
-                  "\n\t\t\tSorry, your search did not find any results\n\t\t"
-                )
-              ]
+  return _c("div", [
+    _c("div", { staticClass: "jumbotron jumbotron-fluid" }, [
+      _c(
+        "div",
+        { staticClass: "container" },
+        [
+          _c("h1", { staticClass: "display-4 text-center" }, [
+            _vm._v("Property Search")
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "lead  text-center" }, [
+            _vm._v(
+              "This App has as it main objective to search our database for your favorite property"
             )
-          ])
-    ],
-    1
-  )
+          ]),
+          _vm._v(" "),
+          _c("property-search", { on: { success: _vm.update } })
+        ],
+        1
+      )
+    ]),
+    _vm._v(" "),
+    _vm.properties.length > 0
+      ? _c(
+          "div",
+          { staticClass: "container" },
+          [
+            _vm.search
+              ? _c(
+                  "div",
+                  {
+                    staticClass: "alert alert-success",
+                    attrs: { role: "alert" }
+                  },
+                  [
+                    _vm._v("\n\t\t  Your search returned "),
+                    _c("strong", [_vm._v(" " + _vm._s(_vm.properties.length))]),
+                    _vm._v(" results.\n\t\t")
+                  ]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm._l(_vm.properties, function(property, index) {
+              return _c(
+                "div",
+                { staticClass: "mb-4" },
+                [
+                  _c("property-item", {
+                    attrs: { "properties-data": property, index: index }
+                  })
+                ],
+                1
+              )
+            })
+          ],
+          2
+        )
+      : _c("div", { staticClass: "container" }, [
+          _c(
+            "div",
+            { staticClass: "alert alert-danger", attrs: { role: "alert" } },
+            [
+              _vm._v(
+                "\n\t\t\tSorry, your search did not find any results\n\t\t"
+              )
+            ]
+          )
+        ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

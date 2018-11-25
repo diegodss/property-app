@@ -56,14 +56,14 @@
 				  <label for="minprice">Min Price</label>
 				  <select id="minprice" class="form-control form-control-sm" v-model="form.minprice">
 				    <option value="" selected>Any</option>
-				    <option v-for="n in pricerange" :value="n">{{ formatPrice(n) }}</option>
+				    <option v-for="n in pricerange" :value="n">$ {{ formatPrice(n) }}</option>
 				  </select>
 				</div>
 				<div class="form-group col-md-2">
 				  <label for="maxprice">Max Price</label>
 				  <select id="maxprice" class="form-control form-control-sm" v-model="form.maxprice">
 				    <option value="" selected>Any</option>
-				    <option v-for="n in pricerange" :value="n">{{ formatPrice(n)}}</option>
+				    <option v-for="n in pricerange" :value="n">$ {{ formatPrice(n)}}</option>
 				  </select>
 				</div>
 
@@ -100,8 +100,6 @@ export default {
 			   	storey	: "",
 			   	garage	: ""
 			},
-			maxprice: "",
-			minprice: "",
 			pricerange: [200000, 300000, 400000, 500000, 600000],
 			processing: false,
 			showFilters: true
@@ -109,16 +107,7 @@ export default {
 		}
 	},
 	mounted() {
-		console.log("Property Search mounted");		
 	},
-	computed: {
-	    // trigger() {
-	    // 	if (this.minprice !== "" && this.maxprice !==) {
-	    //   		this.form.price = this.minprice + '-' + this.maxprice;
-	    // 	}
-	    // }
-  	},
-
 	methods: {
 		onSubmit() {
 			this.processing = true;
