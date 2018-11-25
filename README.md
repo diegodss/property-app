@@ -8,7 +8,7 @@ git clone git@github.com:diegodss/property-app.git
 
 ## 2. Install the package dependencies for using composer and node
 
-cd property-app [enter]
+> cd property-app [enter]
 composer update [enter]
 npm install [enter]
 
