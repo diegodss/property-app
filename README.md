@@ -8,31 +8,31 @@ git clone git@github.com:diegodss/property-app.git
 
 ## 2. Install the package dependencies for using composer and node
 
-> cd property-app [enter]
-composer update [enter]
-npm install [enter]
+    cd property-app [enter]
+    composer update [enter]
+    npm install [enter]
 
 ## 3. Create a database
 
-mysql -u root [enter]
-create database propertyapp [enter]
-quit [enter]
+    mysql -u root [enter]
+    create database propertyapp [enter]
+    quit [enter]
 
 ## 4. Create a .env file and change the database settings. That's the only configuration that needs to be changed. 
 
 ## 5. If you are using valet to manage virtual hosts, create a virtual environment to run the application.
 
-valet link [enter]
+    valet link [enter]
 
 The App URL should be: http://property-app.test 
 
 ## 6. Execute a migration to feed the App.
 
-php artisan migrate --seed [enter]
+    php artisan migrate --seed [enter]
 
 ## 7. Run PHPunit just to make sure all tests are getting green.
 
-phpunit [enter]
+    phpunit [enter]
 
 ## 8. Visit the main URL to start searching for properties.
 
