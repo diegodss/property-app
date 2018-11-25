@@ -16,3 +16,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/property/search/{search?}', 'Api\PropertyController@search');
+Route::post('/property/search/{search?}', 'Api\PropertyController@search');

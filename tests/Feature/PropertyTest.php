@@ -24,7 +24,7 @@ class PropertyTest extends TestCase
     	$propertyNotFound = factory(Property::class, 5)->create();
     	$propertyFound2 = factory(Property::class)->create(['name' => 'Comodore']);    	
     	$propertyFound1 = factory(Property::class)->create(['name' => 'The Como']);
-    	$results = $this->getJson("/property/search?name={$name}")->json();
+    	$results = $this->getJson("/api/property/search?name={$name}")->json();
         $this->assertCount(2, $results["properties"]);
     }
 
@@ -34,7 +34,7 @@ class PropertyTest extends TestCase
     	$bathroom = "2";
     	$propertyFound = factory(Property::class, 10)->create();
     	$total = Property::where('bathroom', $bathroom)->count();
-    	$results = $this->getJson("/property/search?bathroom={$bathroom}")->json();
+    	$results = $this->getJson("/api/property/search?bathroom={$bathroom}")->json();
         $this->assertCount($total, $results["properties"]);
     }
 
@@ -44,7 +44,7 @@ class PropertyTest extends TestCase
     	$bedroom = "2";
     	$propertyFound = factory(Property::class, 10)->create();
     	$total = Property::where('bedroom', $bedroom)->count();
-    	$results = $this->getJson("/property/search?bedroom={$bedroom}")->json();
+    	$results = $this->getJson("/api/property/search?bedroom={$bedroom}")->json();
         $this->assertCount($total, $results["properties"]);
     }
 
@@ -54,7 +54,7 @@ class PropertyTest extends TestCase
     	$storey = "2";
     	$propertyFound = factory(Property::class, 10)->create();
     	$total = Property::where('storey', $storey)->count();
-    	$results = $this->getJson("/property/search?storey={$storey}")->json();
+    	$results = $this->getJson("/api/property/search?storey={$storey}")->json();
         $this->assertCount($total, $results["properties"]);
     }
 
@@ -64,7 +64,7 @@ class PropertyTest extends TestCase
     	$garage = "2";
     	$propertyFound = factory(Property::class, 10)->create();
     	$total = Property::where('garage', $garage)->count();
-    	$results = $this->getJson("/property/search?garage={$garage}")->json();
+    	$results = $this->getJson("/api/property/search?garage={$garage}")->json();
         $this->assertCount($total, $results["properties"]);
     }
 
@@ -83,7 +83,7 @@ class PropertyTest extends TestCase
     	$propertyFound = factory(Property::class, 10)->create();
     	$total = Property::whereBetween('price', [$min_price, $max_price])->where('bedroom', $bedroom)->where('bathroom', $bathroom)->where('garage', $garage)->count();
 
-    	$results = $this->getJson("/property/search?price={$price}&bedroom={$bedroom}&bathroom={$bathroom}&garage={$garage}")->json();
+    	$results = $this->getJson("/api/property/search?price={$price}&bedroom={$bedroom}&bathroom={$bathroom}&garage={$garage}")->json();
         $this->assertCount($total, $results["properties"]);
     }                
 
