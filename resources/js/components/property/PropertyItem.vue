@@ -2,8 +2,8 @@
 	<div class="container">
 		<div class="card">
 			<div class="card-body">
-				<h5 class="card-title"> {{property.name }}</h5>
-				<h6 class="cart-subtitle"> {{ formatPrice (property.price) }}</h6>
+				<h3 class="card-title"> {{property.name }}</h3>
+				<h4 class="cart-subtitle"> {{ formatPrice (property.price) }}</h4>
 				<p class="card-text">
 					<span title="Bedrooms"><font-awesome-icon icon="bed" /> {{ property.bedroom }}</span> &nbsp;&nbsp;
 					<span title="Bathrooms"><font-awesome-icon icon="bath" /> {{ property.bathroom }}</span> &nbsp;&nbsp;

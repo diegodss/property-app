@@ -48289,11 +48289,11 @@ var render = function() {
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "card" }, [
       _c("div", { staticClass: "card-body" }, [
-        _c("h5", { staticClass: "card-title" }, [
+        _c("h3", { staticClass: "card-title" }, [
           _vm._v(" " + _vm._s(_vm.property.name))
         ]),
         _vm._v(" "),
-        _c("h6", { staticClass: "cart-subtitle" }, [
+        _c("h4", { staticClass: "cart-subtitle" }, [
           _vm._v(" " + _vm._s(_vm.formatPrice(_vm.property.price)))
         ]),
         _vm._v(" "),
