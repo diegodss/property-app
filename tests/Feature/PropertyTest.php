@@ -68,22 +68,31 @@ class PropertyTest extends TestCase
         $this->assertCount($total, $results["properties"]);
     }
 
+    public function test_search_property_by_price()
+    {
+        
+        $minprice = "500";
+        $maxprice = "600";
+
+        $propertyFound = factory(Property::class, 10)->create();
+        $total = Property::whereBetween('price', [$minprice, $maxprice])->count();
+
+        $results = $this->getJson("/api/property/search?minprice={$minprice}&maxprice={$maxprice}")->json();
+        $this->assertCount($total, $results["properties"]);
+    }   
     public function test_search_property_by_combined_filters()
     {
 
-    	$bedroom = "2";
+    	$bedroom  = "2";
 		$bathroom = "2";
-		$garage = "2";
-		$price = "500-600";
-
-		$priceBetween = explode("-", $price);
-   		$min_price = $priceBetween[0];
-   		$max_price = $priceBetween[1];
+		$garage   = "2";
+        $minprice = "500";
+        $maxprice = "600";
 
     	$propertyFound = factory(Property::class, 10)->create();
-    	$total = Property::whereBetween('price', [$min_price, $max_price])->where('bedroom', $bedroom)->where('bathroom', $bathroom)->where('garage', $garage)->count();
+    	$total = Property::whereBetween('price', [$minprice, $maxprice])->where('bedroom', $bedroom)->where('bathroom', $bathroom)->where('garage', $garage)->count();
 
-    	$results = $this->getJson("/api/property/search?price={$price}&bedroom={$bedroom}&bathroom={$bathroom}&garage={$garage}")->json();
+    	$results = $this->getJson("/api/property/search?minprice={$minprice}&maxprice={$maxprice}&bedroom={$bedroom}&bathroom={$bathroom}&garage={$garage}")->json();
         $this->assertCount($total, $results["properties"]);
     }                
 

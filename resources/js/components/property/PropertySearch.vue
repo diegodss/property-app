@@ -2,87 +2,71 @@
 	<div class="container">
 
 		<div v-if="processing" class="form_loading"></div>
-
 		<form role="form" method="POST" @submit.prevent="onSubmit">
+			<div class="form-row">
+				<div class="form-group col-md-10">
+					<label for="bedroom">Propery Search</label>
+					<input type="text" name="name" v-model="form.name" class="form-control"/>
+				</div>
+				<div class="form-group col-md-2">
+					<button type="submit" class="btn btn-primary col-md-12">Search</button>
+				</div>
+			</div>
 
+			<div class="form-row">
+				<!-- BEDROOM -->
+				<div class="form-group col-md-2">
+				  <label for="bedroom">Bedrooms</label>
+				  <select id="bedroom" class="form-control" v-model="form.bedroom">
+				    <option value="" selected>Any</option>
+				    <option v-for="n in 10" :value="n">{{n}}</option>
+				  </select>
+				</div>
 
+				<!-- BATHROOM -->
+				<div class="form-group col-md-2">
+				  <label for="bathroom">Bathrooms</label>
+				  <select id="bathdroom" class="form-control" v-model="form.bathroom">
+				    <option value="" selected>Any</option>
+				    <option v-for="n in 10" :value="n">{{n}}</option>
+				  </select>
+				</div>
 
- <div class="form-row">
+				<!-- STOREYS -->
+				<div class="form-group col-md-2">
+				  <label for="storey">Storeys</label>
+				  <select id="storey" class="form-control" v-model="form.storey">
+				    <option value="" selected>Any</option>
+				    <option v-for="n in 10" :value="n">{{n}}</option>
+				  </select>
+				</div>
 
+				<!-- GARAGE -->
+				<div class="form-group col-md-2">
+				  <label for="garage">Garage</label>
+				  <select id="garage" class="form-control" v-model="form.garage">
+				    <option value="" selected>Any</option>
+				    <option v-for="n in 10" :value="n">{{n}}</option>
+				  </select>
+				</div>
 
-	<div class="form-group col-md-10">
-		<input type="text" name="name" v-model="form.name" class="form-control"/>
-	</div>
+				<!-- PRICE RANGE -->
+				<div class="form-group col-md-2">	  
+				  <label for="minprice">Min Price</label>
+				  <select id="minprice" class="form-control" v-model="form.minprice">
+				    <option value="" selected>Any</option>
+				    <option v-for="n in pricerange" :value="n">{{ formatPrice(n) }}</option>
+				  </select>
+				</div>
+				<div class="form-group col-md-2">
+				  <label for="maxprice">Max Price</label>
+				  <select id="maxprice" class="form-control" v-model="form.maxprice">
+				    <option value="" selected>Any</option>
+				    <option v-for="n in pricerange" :value="n">{{ formatPrice(n)}}</option>
+				  </select>
+				</div>
 
-	<div class="form-group col-md-2">
-		<button type="submit" class="btn btn-primary col-md-12">Search</button>
-	</div>
-
-</div>
-
- <div class="form-row">
-
-
-	<!-- BEDROOM -->
-	<div class="form-group col-md-2">
-	  <label for="bedroom">Bedrooms</label>
-	  <select id="bedroom" class="form-control" v-model="form.bedroom">
-	    <option value="" selected>Any</option>
-	    <option v-for="n in 10" :value="n">{{n}}</option>
-	  </select>
-	</div>
-
-
-	<!-- BATHROOM -->
-	<div class="form-group col-md-2">
-	  <label for="bathroom">Bathrooms</label>
-	  <select id="bathdroom" class="form-control" v-model="form.bathroom">
-	    <option value="" selected>Any</option>
-	    <option v-for="n in 10" :value="n">{{n}}</option>
-	  </select>
-	</div>
-
-
-	<!-- STOREYS -->
-	<div class="form-group col-md-2">
-	  <label for="storey">Storeys</label>
-	  <select id="storey" class="form-control" v-model="form.storey">
-	    <option value="" selected>Any</option>
-	    <option v-for="n in 10" :value="n">{{n}}</option>
-	  </select>
-	</div>
-
-
-	<!-- GARAGE -->
-	<div class="form-group col-md-2">
-	  <label for="garage">Garage</label>
-	  <select id="garage" class="form-control" v-model="form.garage">
-	    <option value="" selected>Any</option>
-	    <option v-for="n in 10" :value="n">{{n}}</option>
-	  </select>
-	</div>
-
-	<!-- PRICE RANGE -->
-	<div class="form-group col-md-2">
-	  <label for="maxprice">Max Price</label>
-	  <select id="maxprice" class="form-control" v-model="maxprice" :="trigger">
-	    <option value="" selected>Any</option>
-	    <option v-for="n in pricerange" :value="n">{{n}}</option>
-	  </select>
-	</div>
-	<div class="form-group col-md-2">	  
-	  <label for="minprice">Min Price</label>
-	  <select id="minprice" class="form-control" v-model="minprice" :="trigger">
-	    <option value="" selected>Any</option>
-	    <option v-for="n in pricerange" :value="n">{{n}}</option>
-	  </select>
-	</div>
-
- </div>
-
-
-
-
+			</div>
 		</form>
 	</div>
 </template>
@@ -99,11 +83,13 @@ export default {
 		return {
 			form: {
 				name	: "",
+			   	maxprice: "",
+			   	minprice: "",
 			   	price	: "",			   	
-			   	bedroom	: null,
-			   	bathroom: null,
-			   	storey	: null,
-			   	garage	: null
+			   	bedroom	: "",
+			   	bathroom: "",
+			   	storey	: "",
+			   	garage	: ""
 			},
 			maxprice: "",
 			minprice: "",
@@ -116,10 +102,11 @@ export default {
 		console.log("Property Search mounted");		
 	},
 	computed: {
-	    trigger() {
-	    	console.log("computing ... ");
-	      	this.form.price = this.minprice + '-' + this.maxprice;
-	    }
+	    // trigger() {
+	    // 	if (this.minprice !== "" && this.maxprice !==) {
+	    //   		this.form.price = this.minprice + '-' + this.maxprice;
+	    // 	}
+	    // }
   	},
 
 	methods: {
@@ -127,7 +114,7 @@ export default {
 			this.processing = true;
 			this.$emit('success', {properties: []});
 			axios.post('/api/property/search', this.form)
-				.then(response => {
+				.then(response => {					
 					this.$emit('success', {properties: response.data.properties });
 					this.processing = false;					
 				});

@@ -7,7 +7,8 @@ class PropertyFilters extends Filters {
 
       protected $filters = [
          "name",         
-         "price",
+         "minprice",
+         "maxprice",
          "bedroom",
          "bathroom",
          "storey",
@@ -19,13 +20,13 @@ class PropertyFilters extends Filters {
          return $this->builder->where('name', 'like', '%' . $value . '%');
       }
 
-   	protected function price($value) {
+      protected function minprice($value) {      
+         return $this->builder->where('price', '>=', $value);
+      }
 
-   		$priceBetween = explode("-", $value);
-   		$min_price = $priceBetween[0];
-   		$max_price = $priceBetween[1];
-   		return $this->builder->whereBetween('price', [$min_price, $max_price]);
-   	}
+      protected function maxprice($value) {      
+         return $this->builder->where('price', '<=', $value);
+      }      
 
    	protected function bedroom($value) {
    		return $this->builder->where('bedroom', $value);   		
