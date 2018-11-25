@@ -47518,6 +47518,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -48286,7 +48289,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
+  return _c("div", {}, [
     _c("div", { staticClass: "card" }, [
       _c("div", { staticClass: "card-body" }, [
         _c("h3", { staticClass: "card-title" }, [
@@ -48368,19 +48371,35 @@ var render = function() {
       _vm.properties.length > 0
         ? _c(
             "div",
-            { staticClass: "class" },
-            _vm._l(_vm.properties, function(property, index) {
-              return _c(
+            { staticClass: "container" },
+            [
+              _c(
                 "div",
-                { staticClass: "mb-4" },
+                {
+                  staticClass: "alert alert-success",
+                  attrs: { role: "alert" }
+                },
                 [
-                  _c("property-item", {
-                    attrs: { "properties-data": property, index: index }
-                  })
-                ],
-                1
-              )
-            })
+                  _vm._v("\n\t\t  Your search returned "),
+                  _c("strong", [_vm._v(" " + _vm._s(_vm.properties.length))]),
+                  _vm._v(" results.\n\t\t")
+                ]
+              ),
+              _vm._v(" "),
+              _vm._l(_vm.properties, function(property, index) {
+                return _c(
+                  "div",
+                  { staticClass: "mb-4" },
+                  [
+                    _c("property-item", {
+                      attrs: { "properties-data": property, index: index }
+                    })
+                  ],
+                  1
+                )
+              })
+            ],
+            2
           )
         : _c("div", { staticClass: "container" }, [
             _c(

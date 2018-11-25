@@ -1,8 +1,11 @@
 <template>
 	<div>
-		
+
 		<property-search v-on:success="update"></property-search>
-		<div class="class" v-if="properties.length > 0">
+		<div class="container" v-if="properties.length > 0">
+			<div class="alert alert-success" role="alert">
+			  Your search returned <strong> {{ properties.length }}</strong> results.
+			</div>
 			<div class="mb-4" v-for="(property, index) in properties">
 				<property-item :properties-data="property" :index="index"></property-item>
 			</div>

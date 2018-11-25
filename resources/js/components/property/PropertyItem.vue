@@ -1,5 +1,5 @@
 <template>
-	<div class="container">
+	<div class="">
 		<div class="card">
 			<div class="card-body">
 				<h3 class="card-title"> {{property.name }}</h3>
