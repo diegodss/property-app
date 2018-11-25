@@ -21,6 +21,8 @@ class CreatePropertyTable extends Migration
             $table->integer('bathroom');
             $table->integer('storey');
             $table->integer('garage');
+            $table->boolean('active')->default(true);         
+            $table->softDeletes();            
             $table->timestamps();
         });
     }

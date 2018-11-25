@@ -18,3 +18,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/property/search/{search?}', 'Api\PropertyController@search');
+Route::post('/property/search/{search?}', 'Api\PropertyController@search');

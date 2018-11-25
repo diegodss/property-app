@@ -17,7 +17,7 @@ class PropertyController extends Controller
         $properties = Property::filter($filters)->get();
         return response()->json([
             "status" => "success",
-            "message" => "Search property perfomed successful"
+            "message" => "Search property perfomed successful",
             "properties" => $properties
         ], 200);
     }
@@ -51,7 +51,7 @@ class PropertyController extends Controller
      */
     public function show(Property $property)
     {
-        $returnData['property'] = $property
+        $returnData['property'] = $property;
         return View::make('property.show', $returnData);
     }
 
