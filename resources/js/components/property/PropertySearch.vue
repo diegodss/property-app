@@ -9,11 +9,12 @@
 					<input type="text" name="name" v-model="form.name" class="form-control"/>
 				</div>
 				<div class="form-group col-md-2">
+					<label for="bedroom">&nbsp;</label>					
 					<button type="submit" class="btn btn-primary col-md-12">Search</button>
 				</div>
 			</div>
 
-			<div class="form-row">
+			<div class="form-row" v-if="showFilters">
 				<!-- BEDROOM -->
 				<div class="form-group col-md-2">
 				  <label for="bedroom">Bedrooms</label>
@@ -67,6 +68,14 @@
 				</div>
 
 			</div>
+			<div class="form-row">				
+				<div class="form-group col-md-12">
+					<button type="button" class="btn btn-secondary btn-sm" @click="showFilters = !showFilters" v-if="showFilters">Hide filters bar</button>
+					<button type="button" class="btn btn-secondary btn-sm" @click="showFilters = !showFilters" v-if="!showFilters">Show filters bar</button>
+					<a href="/" class="btn btn-secondary btn-sm">Reset Filters</a>
+				</div>
+			</div>
+
 		</form>
 	</div>
 </template>
@@ -95,6 +104,7 @@ export default {
 			minprice: "",
 			pricerange: [200000, 300000, 400000, 500000, 600000],
 			processing: false,
+			showFilters: true
 			
 		}
 	},
