@@ -18,7 +18,7 @@
 				<!-- BEDROOM -->
 				<div class="form-group col-md-2">
 				  <label for="bedroom">Bedrooms</label>
-				  <select id="bedroom" class="form-control" v-model="form.bedroom">
+				  <select id="bedroom" class="form-control form-control-sm" v-model="form.bedroom">
 				    <option value="" selected>Any</option>
 				    <option v-for="n in 10" :value="n">{{n}}</option>
 				  </select>
@@ -27,7 +27,7 @@
 				<!-- BATHROOM -->
 				<div class="form-group col-md-2">
 				  <label for="bathroom">Bathrooms</label>
-				  <select id="bathdroom" class="form-control" v-model="form.bathroom">
+				  <select id="bathdroom" class="form-control form-control-sm" v-model="form.bathroom">
 				    <option value="" selected>Any</option>
 				    <option v-for="n in 10" :value="n">{{n}}</option>
 				  </select>
@@ -36,7 +36,7 @@
 				<!-- STOREYS -->
 				<div class="form-group col-md-2">
 				  <label for="storey">Storeys</label>
-				  <select id="storey" class="form-control" v-model="form.storey">
+				  <select id="storey" class="form-control form-control-sm" v-model="form.storey">
 				    <option value="" selected>Any</option>
 				    <option v-for="n in 10" :value="n">{{n}}</option>
 				  </select>
@@ -45,7 +45,7 @@
 				<!-- GARAGE -->
 				<div class="form-group col-md-2">
 				  <label for="garage">Garage</label>
-				  <select id="garage" class="form-control" v-model="form.garage">
+				  <select id="garage" class="form-control form-control-sm" v-model="form.garage">
 				    <option value="" selected>Any</option>
 				    <option v-for="n in 10" :value="n">{{n}}</option>
 				  </select>
@@ -54,14 +54,14 @@
 				<!-- PRICE RANGE -->
 				<div class="form-group col-md-2">	  
 				  <label for="minprice">Min Price</label>
-				  <select id="minprice" class="form-control" v-model="form.minprice">
+				  <select id="minprice" class="form-control form-control-sm" v-model="form.minprice">
 				    <option value="" selected>Any</option>
 				    <option v-for="n in pricerange" :value="n">{{ formatPrice(n) }}</option>
 				  </select>
 				</div>
 				<div class="form-group col-md-2">
 				  <label for="maxprice">Max Price</label>
-				  <select id="maxprice" class="form-control" v-model="form.maxprice">
+				  <select id="maxprice" class="form-control form-control-sm" v-model="form.maxprice">
 				    <option value="" selected>Any</option>
 				    <option v-for="n in pricerange" :value="n">{{ formatPrice(n)}}</option>
 				  </select>

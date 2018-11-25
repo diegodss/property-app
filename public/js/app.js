@@ -47822,7 +47822,7 @@ var render = function() {
                         expression: "form.bedroom"
                       }
                     ],
-                    staticClass: "form-control",
+                    staticClass: "form-control form-control-sm",
                     attrs: { id: "bedroom" },
                     on: {
                       change: function($event) {
@@ -47875,7 +47875,7 @@ var render = function() {
                         expression: "form.bathroom"
                       }
                     ],
-                    staticClass: "form-control",
+                    staticClass: "form-control form-control-sm",
                     attrs: { id: "bathdroom" },
                     on: {
                       change: function($event) {
@@ -47926,7 +47926,7 @@ var render = function() {
                         expression: "form.storey"
                       }
                     ],
-                    staticClass: "form-control",
+                    staticClass: "form-control form-control-sm",
                     attrs: { id: "storey" },
                     on: {
                       change: function($event) {
@@ -47977,7 +47977,7 @@ var render = function() {
                         expression: "form.garage"
                       }
                     ],
-                    staticClass: "form-control",
+                    staticClass: "form-control form-control-sm",
                     attrs: { id: "garage" },
                     on: {
                       change: function($event) {
@@ -48030,7 +48030,7 @@ var render = function() {
                         expression: "form.minprice"
                       }
                     ],
-                    staticClass: "form-control",
+                    staticClass: "form-control form-control-sm",
                     attrs: { id: "minprice" },
                     on: {
                       change: function($event) {
@@ -48083,7 +48083,7 @@ var render = function() {
                         expression: "form.maxprice"
                       }
                     ],
-                    staticClass: "form-control",
+                    staticClass: "form-control form-control-sm",
                     attrs: { id: "maxprice" },
                     on: {
                       change: function($event) {
